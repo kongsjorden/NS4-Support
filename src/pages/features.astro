@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import FeatureCard from '../components/FeatureCard.astro';
-import Placeholder from '../components/Placeholder.astro';
+import PhoneMockup from '../components/PhoneMockup.astro';
 
 const features = [
   {
@@ -145,15 +145,57 @@ const features = [
   </section>
 
   <!-- Screenshots Section -->
-  <section class="py-20 bg-surface/50">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="font-display font-bold text-3xl md:text-4xl text-text text-center mb-12">
+  <section class="py-20 bg-surface/30 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-text text-center mb-4">
         See It in Action
       </h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <Placeholder label="Setlist View" aspectRatio="phone" class="max-w-xs mx-auto" />
-        <Placeholder label="Performance Mode" aspectRatio="phone" class="max-w-xs mx-auto" />
-        <Placeholder label="MIDI Controls" aspectRatio="phone" class="max-w-xs mx-auto" />
+      <p class="text-text-muted text-center mb-12 max-w-2xl mx-auto">
+        A professional dark interface designed for live performance environments
+      </p>
+
+      <!-- Main showcase - 3 phones -->
+      <div class="flex justify-center items-end gap-4 md:gap-8 mb-12">
+        <!-- Left phone - tilted -->
+        <div class="hidden sm:block relative -rotate-6 translate-y-8">
+          <div class="absolute inset-0 bg-primary/10 rounded-[3rem] blur-2xl opacity-50"></div>
+          <PhoneMockup src="/screenshots/setlist-song.png" alt="Setlist view" size="sm" />
+        </div>
+
+        <!-- Center phone - featured -->
+        <div class="relative z-10">
+          <div class="absolute -inset-8 bg-primary/20 rounded-[4rem] blur-3xl"></div>
+          <PhoneMockup src="/screenshots/performance-mode.png" alt="Performance mode" size="lg" />
+        </div>
+
+        <!-- Right phone - tilted -->
+        <div class="hidden sm:block relative rotate-6 translate-y-8">
+          <div class="absolute inset-0 bg-primary/10 rounded-[3rem] blur-2xl opacity-50"></div>
+          <PhoneMockup src="/screenshots/controls-quick.png" alt="Quick controls" size="sm" />
+        </div>
+      </div>
+
+      <!-- Thumbnail row -->
+      <div class="flex justify-center gap-4 flex-wrap">
+        {[
+          { src: '/screenshots/programs-browser.png', label: 'Programs' },
+          { src: '/screenshots/tempo-metronome.png', label: 'Tempo' },
+          { src: '/screenshots/controls-organ.png', label: 'Drawbars' },
+          { src: '/screenshots/controls-synth.png', label: 'Synth' },
+          { src: '/screenshots/midi-monitor.png', label: 'Monitor' },
+          { src: '/screenshots/settings.png', label: 'Settings' },
+        ].map(item => (
+          <div class="group cursor-pointer">
+            <div class="w-20 h-36 md:w-24 md:h-44 rounded-2xl overflow-hidden border-2 border-border/50 group-hover:border-primary/50 transition-all duration-300 shadow-lg group-hover:shadow-primary/20">
+              <img
+                src={item.src}
+                alt={item.label}
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <p class="text-center text-text-dim text-xs mt-2 group-hover:text-primary transition-colors">{item.label}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

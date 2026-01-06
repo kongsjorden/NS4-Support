@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import FeatureCard from '../components/FeatureCard.astro';
-import Placeholder from '../components/Placeholder.astro';
+import PhoneMockup from '../components/PhoneMockup.astro';
 
 const features = [
   {
@@ -35,35 +35,96 @@ const features = [
     subtitle="Create setlists, control MIDI parameters, and perform with confidence. The companion app that fills the gaps Nord forgot."
   />
 
-  <!-- App Preview Section -->
-  <section class="py-20 bg-surface/50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="font-display font-bold text-3xl md:text-4xl text-text mb-4">
-            Stage-Ready Interface
-          </h2>
-          <p class="text-text-muted text-lg leading-relaxed mb-6">
-            Designed for live performance with a dark theme that's easy on the eyes and large touch targets that work even under stage lights.
-          </p>
-          <ul class="space-y-3">
-            {['Tap or swipe to change songs', 'Automatic program changes', 'Visual connection status', 'Haptic feedback confirmation'].map(item => (
-              <li class="flex items-center gap-3 text-text-muted">
-                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                {item}
-              </li>
-            ))}
-          </ul>
+  <!-- App Showcase Section -->
+  <section class="py-16 md:py-24 relative overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface/50 to-transparent pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative">
+      <div class="text-center mb-16">
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text mb-4">
+          Designed for the Stage
+        </h2>
+        <p class="text-text-muted text-lg max-w-2xl mx-auto">
+          A dark, focused interface that's easy on the eyes under any lighting condition
+        </p>
+      </div>
+
+      <!-- Screenshot Carousel -->
+      <div class="relative">
+        <!-- Fade edges -->
+        <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none"></div>
+
+        <div class="flex gap-6 md:gap-8 overflow-x-auto pb-8 px-4 scrollbar-hide snap-x snap-mandatory scroll-smooth" id="screenshot-carousel">
+          <!-- Setlist with song -->
+          <div class="flex-shrink-0 snap-center">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
+              <PhoneMockup src="/screenshots/setlist-song.png" alt="Setlist with songs" size="md" />
+              <p class="text-center text-text-muted text-sm mt-4 font-medium">Setlist View</p>
+            </div>
+          </div>
+
+          <!-- Performance Mode -->
+          <div class="flex-shrink-0 snap-center">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
+              <PhoneMockup src="/screenshots/performance-mode.png" alt="Performance mode" size="md" />
+              <p class="text-center text-text-muted text-sm mt-4 font-medium">Performance Mode</p>
+            </div>
+          </div>
+
+          <!-- Programs Browser -->
+          <div class="flex-shrink-0 snap-center">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
+              <PhoneMockup src="/screenshots/programs-browser.png" alt="Programs browser" size="md" />
+              <p class="text-center text-text-muted text-sm mt-4 font-medium">Programs Browser</p>
+            </div>
+          </div>
+
+          <!-- Tempo/Metronome -->
+          <div class="flex-shrink-0 snap-center">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
+              <PhoneMockup src="/screenshots/tempo-metronome.png" alt="Tempo and metronome" size="md" />
+              <p class="text-center text-text-muted text-sm mt-4 font-medium">Tempo & Click</p>
+            </div>
+          </div>
+
+          <!-- Controls Quick -->
+          <div class="flex-shrink-0 snap-center">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
+              <PhoneMockup src="/screenshots/controls-quick.png" alt="Quick controls" size="md" />
+              <p class="text-center text-text-muted text-sm mt-4 font-medium">Quick Controls</p>
+            </div>
+          </div>
+
+          <!-- MIDI Monitor -->
+          <div class="flex-shrink-0 snap-center">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
+              <PhoneMockup src="/screenshots/midi-monitor.png" alt="MIDI monitor" size="md" />
+              <p class="text-center text-text-muted text-sm mt-4 font-medium">MIDI Monitor</p>
+            </div>
+          </div>
         </div>
-        <Placeholder label="Performance Mode Screenshot" aspectRatio="phone" class="max-w-xs mx-auto" />
+
+        <!-- Scroll hint -->
+        <div class="flex justify-center gap-2 mt-4">
+          <span class="text-text-dim text-sm">Swipe to explore</span>
+          <svg class="w-5 h-5 text-text-dim animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Features Grid -->
-  <section class="py-20">
+  <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
         <h2 class="font-display font-bold text-3xl md:text-4xl text-text mb-4">
@@ -94,23 +155,57 @@ const features = [
     </div>
   </section>
 
-  <!-- MIDI Control Section -->
-  <section class="py-20 bg-surface/50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <Placeholder label="Drawbars Interface Screenshot" aspectRatio="phone" class="max-w-xs mx-auto md:order-2" />
-        <div class="md:order-1">
-          <h2 class="font-display font-bold text-3xl md:text-4xl text-text mb-4">
+  <!-- Deep MIDI Control Section -->
+  <section class="py-16 md:py-24 bg-surface/30">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Screenshots side by side -->
+        <div class="relative flex justify-center items-end gap-4 lg:gap-6">
+          <!-- Glow -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px]"></div>
+
+          <!-- Organ drawbars -->
+          <div class="relative -rotate-3 translate-y-4">
+            <PhoneMockup src="/screenshots/controls-organ.png" alt="Organ drawbars" size="sm" />
+          </div>
+
+          <!-- Synth controls -->
+          <div class="relative rotate-2 -translate-y-4 z-10">
+            <PhoneMockup src="/screenshots/controls-synth.png" alt="Synth filter controls" size="sm" />
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full mb-6">
+            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+            </svg>
+            <span class="text-primary text-sm font-medium">Extended Controls</span>
+          </div>
+
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text mb-6">
             Deep MIDI Control
           </h2>
-          <p class="text-text-muted text-lg leading-relaxed mb-6">
-            Access controls that aren't available from the keyboard itself. Adjust organ drawbars, filter parameters, and effects in real-time.
+          <p class="text-text-muted text-lg leading-relaxed mb-8">
+            Access controls that aren't available from the keyboard itself. Adjust organ drawbars with presets, tweak synth filter parameters with an XY pad, and control effects in real-time.
           </p>
-          <div class="grid grid-cols-2 gap-4">
-            {['9-Fader Drawbars', 'Rotary Speed', 'Filter XY Pad', 'Morph Control', 'Effect Toggles', 'ADSR Editor'].map(item => (
-              <div class="flex items-center gap-2 text-text-muted text-sm">
-                <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
-                {item}
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            {[
+              { icon: '🎹', label: '9-Fader Drawbars', desc: 'With Gospel, Jazz & Full presets' },
+              { icon: '🎛️', label: 'Filter XY Pad', desc: 'Freq & Resonance control' },
+              { icon: '🔊', label: 'Rotary Speed', desc: 'Slow/Fast with visual feedback' },
+              { icon: '⚡', label: 'Section Switches', desc: 'Organ, Piano, Synth toggles' },
+              { icon: '📊', label: 'ADSR Editor', desc: 'Filter envelope shaping' },
+              { icon: '🎚️', label: 'Morph Pad', desc: 'Assignable XY controller' },
+            ].map(item => (
+              <div class="flex items-start gap-3 p-3 rounded-xl bg-surface/50 border border-border/30">
+                <span class="text-xl">{item.icon}</span>
+                <div>
+                  <div class="font-medium text-text text-sm">{item.label}</div>
+                  <div class="text-text-dim text-xs">{item.desc}</div>
+                </div>
               </div>
             ))}
           </div>
@@ -119,12 +214,63 @@ const features = [
     </div>
   </section>
 
+  <!-- Stage Ready Section -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Content first on desktop -->
+        <div class="lg:order-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-orange-500/10 rounded-full mb-6">
+            <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-orange-400 text-sm font-medium">Stay in Time</span>
+          </div>
+
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text mb-6">
+            Perfect Timing, Every Gig
+          </h2>
+          <p class="text-text-muted text-lg leading-relaxed mb-8">
+            The integrated metronome starts automatically with each song. Set BPM per song, choose your time signature, and send MIDI clock to sync arpeggiators and delays.
+          </p>
+
+          <ul class="space-y-4">
+            {[
+              'Auto-start metronome when navigating songs',
+              '24 PPQN MIDI clock for perfect arpeggiator sync',
+              '7 time signatures from 2/4 to 8/4',
+              'Quarter, eighth, and sixteenth subdivisions',
+              'Audio click with adjustable latency offset',
+            ].map(item => (
+              <li class="flex items-center gap-3 text-text-muted">
+                <svg class="w-5 h-5 text-orange-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Screenshot -->
+        <div class="lg:order-2 flex justify-center">
+          <div class="relative">
+            <!-- Glow -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[400px] bg-orange-500/15 rounded-full blur-[80px]"></div>
+            <PhoneMockup src="/screenshots/tempo-metronome.png" alt="Tempo and metronome" size="lg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
-  <section class="py-20">
+  <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-6">
       <div class="relative rounded-3xl bg-gradient-to-br from-primary/20 via-surface to-surface border border-primary/20 p-8 md:p-12 text-center overflow-hidden">
         <!-- Decorative -->
         <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-primary/5 rounded-full blur-2xl"></div>
 
         <h2 class="font-display font-bold text-3xl md:text-4xl text-text mb-4 relative">
           Ready to Upgrade Your Performance?
@@ -159,5 +305,23 @@ const features = [
 <style>
   .font-display {
     font-family: 'Outfit', sans-serif;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes bounceX {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }
+
+  .animate-bounce-x {
+    animation: bounceX 1.5s ease-in-out infinite;
   }
 </style>
