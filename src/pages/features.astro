@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import Placeholder from '../components/Placeholder.astro';
+
+const features = [
+  {
+    title: 'Setlist Management',
+    description: 'Create unlimited setlists with songs, program selections, BPM, musical key, and performance notes. Drag to reorder, swipe to delete.',
+    icon: 'setlist',
+    details: ['Unlimited setlists', 'Per-song BPM and key', 'Performance notes', 'Share via QR code', 'Import/Export JSON'],
+  },
+  {
+    title: 'Performance Mode',
+    description: 'Full-screen stage-ready interface with large touch zones. Tap or swipe to navigate songs with automatic program changes.',
+    icon: 'performance',
+    details: ['Large touch targets', 'Swipe navigation', 'Auto program change', 'Haptic feedback', 'Visual status'],
+  },
+  {
+    title: 'Master Click',
+    description: 'Per-song metronome that auto-starts when navigating. Sends 24 PPQN MIDI clock for arpeggiator sync.',
+    icon: 'metronome',
+    details: ['Auto-start per song', '24 PPQN MIDI clock', '7 time signatures', 'Subdivisions', 'Audio click output'],
+  },
+  {
+    title: 'Extended MIDI Controls',
+    description: 'Access organ drawbars, synth filters, effects, and more. Real-time control over parameters not available on the keyboard.',
+    icon: 'midi',
+    details: ['9-fader drawbars', 'Filter XY pad', 'Rotary speed', 'Effect toggles', 'Section switches'],
+  },
+  {
+    title: 'MIDI Learn',
+    description: 'Turn the program dial on your Nord and the app captures the selection. Auto-creates program library entries.',
+    icon: 'learn',
+    details: ['Auto-capture', 'Bank detection', 'Program library', 'Factory presets', '512 programs'],
+  },
+  {
+    title: 'Rig Manager',
+    description: 'Send program changes to secondary MIDI devices simultaneously. Control iPad synths, external keyboards, and more.',
+    icon: 'rig',
+    details: ['Secondary devices', 'Per-song config', 'Bank MSB/LSB', 'Channel routing', 'Visual badges'],
+  },
+  {
+    title: 'MIDI Monitor',
+    description: 'Real-time display of all MIDI messages. Color-coded by type with filtering and test buttons.',
+    icon: 'monitor',
+    details: ['Real-time display', 'Color-coded types', 'Filter by type', 'Test buttons', 'Timestamps'],
+  },
+  {
+    title: 'USB & Bluetooth',
+    description: 'Connect via USB for lowest latency or Bluetooth for wireless freedom. Auto-reconnect on hot-swap.',
+    icon: 'wireless',
+    details: ['USB: 5-10ms', 'BLE MIDI support', 'Auto-reconnect', 'Device detection', 'Panic button'],
+  },
+];
+---
+
+<Layout title="Features" description="Explore all the powerful features of NS4 Companion - the ultimate companion app for Nord Stage 4.">
+  <!-- Header -->
+  <section class="pt-32 pb-16 md:pt-40 md:pb-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-text mb-6">
+        Powerful Features
+      </h1>
+      <p class="text-text-muted text-lg md:text-xl max-w-2xl mx-auto">
+        Everything you need to take control of your Nord Stage 4 and elevate your live performances.
+      </p>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="pb-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature, i) => (
+          <div class="group p-6 bg-surface rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5">
+            <!-- Icon -->
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+              {feature.icon === 'setlist' && (
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                </svg>
+              )}
+              {feature.icon === 'performance' && (
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+              )}
+              {feature.icon === 'metronome' && (
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              )}
+              {feature.icon === 'midi' && (
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                </svg>
+              )}
+              {feature.icon === 'learn' && (
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              )}
+              {feature.icon === 'rig' && (
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                </svg>
+              )}
+              {feature.icon === 'monitor' && (
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              )}
+              {feature.icon === 'wireless' && (
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                </svg>
+              )}
+            </div>
+
+            <!-- Content -->
+            <h3 class="font-display font-semibold text-xl text-text mb-3">
+              {feature.title}
+            </h3>
+            <p class="text-text-muted text-sm leading-relaxed mb-4">
+              {feature.description}
+            </p>
+
+            <!-- Details -->
+            <ul class="space-y-2">
+              {feature.details.map(detail => (
+                <li class="flex items-center gap-2 text-text-dim text-sm">
+                  <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Section -->
+  <section class="py-20 bg-surface/50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-text text-center mb-12">
+        See It in Action
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <Placeholder label="Setlist View" aspectRatio="phone" class="max-w-xs mx-auto" />
+        <Placeholder label="Performance Mode" aspectRatio="phone" class="max-w-xs mx-auto" />
+        <Placeholder label="MIDI Controls" aspectRatio="phone" class="max-w-xs mx-auto" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-text mb-4">
+        Ready to Get Started?
+      </h2>
+      <p class="text-text-muted text-lg mb-8 max-w-xl mx-auto">
+        Download NS4 Companion and unlock the full potential of your Nord Stage 4.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://apps.apple.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary hover:bg-primary-hover text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+        >
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Download for iOS
+        </a>
+        <a
+          href="/guide"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surface hover:bg-surface-hover text-text font-semibold rounded-xl border border-border transition-colors"
+        >
+          Read the Guide
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .font-display {
+    font-family: 'Outfit', sans-serif;
+  }
+</style>

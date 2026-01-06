@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  /* Nord-inspired color palette */
+  --color-background: #1a1a1a;
+  --color-surface: #2a2a2a;
+  --color-surface-hover: #3a3a3a;
+  --color-primary: #c8102e;
+  --color-primary-hover: #e01b3c;
+  --color-text: #ffffff;
+  --color-text-muted: #999999;
+  --color-text-dim: #666666;
+  --color-border: #404040;
+
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
+}
+
+/* Base styles */
+html {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}

@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+
+const faqCategories = [
+  {
+    title: 'Connection',
+    faqs: [
+      {
+        id: 'usb-vs-bluetooth',
+        question: 'Should I use USB or Bluetooth?',
+        answer: 'USB is recommended for the lowest latency (5-10ms). Use Bluetooth (15-20ms latency) when you need wireless freedom. Both work well for most use cases, but USB is preferred for critical live performances.',
+      },
+      {
+        id: 'not-connecting',
+        question: 'My Nord is not being detected. What should I do?',
+        answer: 'Make sure your Nord Stage 4 is powered on. Check that the USB cable is properly connected. Try a different USB cable if available. Restart both the app and your Nord. If using Bluetooth, ensure your adapter is charged and in pairing mode.',
+      },
+      {
+        id: 'connection-drops',
+        question: 'Why does my connection keep dropping?',
+        answer: 'Connection drops are usually caused by faulty cables or Bluetooth interference. Try a different USB cable. If using Bluetooth, move closer to the adapter and away from other wireless devices. The app automatically attempts to reconnect when a connection is lost.',
+      },
+      {
+        id: 'bluetooth-adapters',
+        question: 'Which Bluetooth MIDI adapters are compatible?',
+        answer: 'The app works with standard BLE MIDI adapters including CME WIDI Master, Yamaha MD-BT01, Quicco mi.1, and similar devices. Connect the adapter to your Nord\'s MIDI IN/OUT ports.',
+      },
+    ],
+  },
+  {
+    title: 'Setlists',
+    faqs: [
+      {
+        id: 'program-not-changing',
+        question: 'Why isn\'t the program changing on my Nord?',
+        answer: 'First, check that your Nord is connected (green indicator). Ensure Program Change messages are enabled on your Nord (Menu → MIDI → Program Change → On). Verify you\'re on the correct MIDI channel.',
+      },
+      {
+        id: 'share-setlists',
+        question: 'How do I share setlists with my bandmates?',
+        answer: 'You can share setlists via QR code (other users scan to import) or export as a JSON file. Go to your setlist, tap the share button, and choose your preferred method.',
+      },
+      {
+        id: 'backup-setlists',
+        question: 'How do I back up my setlists?',
+        answer: 'Export your setlists as JSON files and save them to iCloud, Dropbox, or your preferred cloud storage. You can re-import them at any time.',
+      },
+      {
+        id: 'factory-programs',
+        question: 'Does the app include factory program names?',
+        answer: 'Yes! All 512 factory programs (Banks A-H) are included with their original names. User programs in Banks G-H can be renamed to match your custom sounds.',
+      },
+    ],
+  },
+  {
+    title: 'MIDI Controls',
+    faqs: [
+      {
+        id: 'drawbars-not-working',
+        question: 'The drawbars aren\'t affecting my organ sound. Why?',
+        answer: 'Make sure the Organ section is active on your Nord. Drawbars only affect the organ section. Check that MIDI CC messages are enabled on your Nord (Menu → MIDI → Control Change → On).',
+      },
+      {
+        id: 'midi-learn',
+        question: 'How does MIDI Learn work?',
+        answer: 'Turn the program dial on your Nord Stage 4, and the app will automatically capture the selection. This is useful for quickly finding programs when building setlists.',
+      },
+      {
+        id: 'secondary-devices',
+        question: 'Can I control other MIDI devices too?',
+        answer: 'Yes! Use the Rig Manager to configure secondary MIDI devices. You can send program changes to iPad synth apps, external keyboards, drum machines, and more — all simultaneously with your primary Nord program change.',
+      },
+      {
+        id: 'midi-clock',
+        question: 'Does the metronome sync with my Nord\'s arpeggiator?',
+        answer: 'Yes! The Master Click sends 24 PPQN MIDI Clock to your Nord, which syncs the built-in arpeggiator and other tempo-synced effects.',
+      },
+    ],
+  },
+  {
+    title: 'General',
+    faqs: [
+      {
+        id: 'ios-version',
+        question: 'What iOS version is required?',
+        answer: 'NS4 Companion requires iOS 17.0 or later. It runs on both iPhone and iPad.',
+      },
+      {
+        id: 'other-keyboards',
+        question: 'Does this work with other Nord keyboards?',
+        answer: 'NS4 Companion is specifically designed for the Nord Stage 4. While some features may work with other Nord keyboards, full compatibility is only guaranteed with the Stage 4.',
+      },
+      {
+        id: 'offline',
+        question: 'Does the app require an internet connection?',
+        answer: 'No! NS4 Companion works completely offline. All your setlists and settings are stored locally on your device.',
+      },
+      {
+        id: 'privacy',
+        question: 'What data does the app collect?',
+        answer: 'None. NS4 Companion collects zero data. There are no analytics, no tracking, and no accounts. Everything stays on your device. See our <a href="/privacy" class="text-primary hover:underline">Privacy Policy</a> for details.',
+      },
+      {
+        id: 'support',
+        question: 'How do I get help or report a bug?',
+        answer: 'Visit our <a href="/support" class="text-primary hover:underline">Support page</a> to access GitHub Discussions for questions and feature requests, or report bugs directly. You can also email us for assistance.',
+      },
+    ],
+  },
+];
+---
+
+<Layout title="FAQ" description="Frequently asked questions about NS4 Companion for Nord Stage 4.">
+  <section class="pt-32 pb-20 md:pt-40">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-text text-center mb-6">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-text-muted text-lg text-center mb-12">
+        Find answers to common questions about NS4 Companion.
+      </p>
+
+      <div class="space-y-12">
+        {faqCategories.map(category => (
+          <div>
+            <h2 class="font-display font-semibold text-xl text-text mb-4 flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                {category.title === 'Connection' && (
+                  <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                  </svg>
+                )}
+                {category.title === 'Setlists' && (
+                  <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                  </svg>
+                )}
+                {category.title === 'MIDI Controls' && (
+                  <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                  </svg>
+                )}
+                {category.title === 'General' && (
+                  <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                )}
+              </span>
+              {category.title}
+            </h2>
+            <div class="bg-surface rounded-xl border border-border overflow-hidden">
+              {category.faqs.map(faq => (
+                <FaqAccordion
+                  question={faq.question}
+                  answer={faq.answer}
+                  id={faq.id}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Still have questions -->
+      <div class="mt-16 p-8 bg-surface rounded-2xl border border-border text-center">
+        <h2 class="font-display font-semibold text-xl text-text mb-3">
+          Still have questions?
+        </h2>
+        <p class="text-text-muted mb-6">
+          Can't find what you're looking for? Reach out to us!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://github.com/kongsjorden/NS4-Support/discussions"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-hover text-white font-semibold rounded-xl transition-colors"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            Ask on GitHub
+          </a>
+          <a
+            href="/support"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-surface-hover hover:bg-border text-text font-semibold rounded-xl border border-border transition-colors"
+          >
+            Contact Support
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .font-display {
+    font-family: 'Outfit', sans-serif;
+  }
+</style>

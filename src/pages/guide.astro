@@ -1,0 +1,360 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  {
+    id: 'getting-started',
+    title: 'Getting Started',
+    content: `
+      <h3>System Requirements</h3>
+      <ul>
+        <li>iPhone or iPad running iOS 17.0 or later</li>
+        <li>Nord Stage 4 keyboard</li>
+        <li>USB-C cable or Bluetooth MIDI adapter</li>
+      </ul>
+
+      <h3>Installation</h3>
+      <ol>
+        <li>Download NS4 Companion from the App Store</li>
+        <li>Launch the app and accept the disclaimer</li>
+        <li>Connect your Nord Stage 4 via USB or Bluetooth</li>
+      </ol>
+    `,
+  },
+  {
+    id: 'connecting',
+    title: 'Connecting Your Nord',
+    content: `
+      <h3>USB Connection (Recommended)</h3>
+      <p>For the lowest latency (5-10ms), connect via USB:</p>
+      <ol>
+        <li>Connect your iPhone/iPad to the Nord Stage 4 using a USB-C cable</li>
+        <li>If using an older device, use a Lightning to USB adapter</li>
+        <li>The app will automatically detect and connect to your Nord</li>
+        <li>Look for the green connection indicator in the app</li>
+      </ol>
+
+      <h3>Bluetooth Connection</h3>
+      <p>For wireless freedom (15-20ms latency):</p>
+      <ol>
+        <li>Connect a BLE MIDI adapter (like CME WIDI Master or Yamaha MD-BT01) to your Nord's MIDI ports</li>
+        <li>In the app, go to Settings → MIDI Connection</li>
+        <li>Select your Bluetooth MIDI device from the list</li>
+        <li>Wait for the connection to establish</li>
+      </ol>
+
+      <h3>Troubleshooting</h3>
+      <ul>
+        <li><strong>No device found:</strong> Make sure your Nord is powered on and the cable is properly connected</li>
+        <li><strong>Connection drops:</strong> Try a different USB cable or check your Bluetooth adapter's battery</li>
+        <li><strong>High latency:</strong> Switch from Bluetooth to USB for better performance</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'setlists',
+    title: 'Managing Setlists',
+    content: `
+      <h3>Creating a Setlist</h3>
+      <ol>
+        <li>Tap the + button on the Setlists screen</li>
+        <li>Enter a name for your setlist</li>
+        <li>Add songs by tapping "Add Song"</li>
+      </ol>
+
+      <h3>Adding Songs</h3>
+      <p>Each song can have:</p>
+      <ul>
+        <li><strong>Name:</strong> The song title</li>
+        <li><strong>Program:</strong> Select from 512 Nord programs (Banks A-H)</li>
+        <li><strong>BPM:</strong> Tempo for the metronome</li>
+        <li><strong>Key:</strong> Musical key for reference</li>
+        <li><strong>Notes:</strong> Performance notes visible in Performance Mode</li>
+        <li><strong>Master Click:</strong> Toggle auto-start metronome for this song</li>
+      </ul>
+
+      <h3>Organizing Songs</h3>
+      <ul>
+        <li><strong>Reorder:</strong> Long-press and drag songs to rearrange</li>
+        <li><strong>Delete:</strong> Swipe left on a song to delete</li>
+        <li><strong>Edit:</strong> Tap a song to modify its settings</li>
+      </ul>
+
+      <h3>Sharing Setlists</h3>
+      <p>Share setlists with bandmates:</p>
+      <ul>
+        <li><strong>QR Code:</strong> Generate a QR code that others can scan</li>
+        <li><strong>JSON Export:</strong> Export as a JSON file for backup or sharing</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'performance',
+    title: 'Performance Mode',
+    content: `
+      <h3>Using Performance Mode</h3>
+      <p>Performance Mode is designed for live use with a full-screen, stage-ready interface.</p>
+
+      <h3>Navigation</h3>
+      <ul>
+        <li><strong>Next Song:</strong> Tap the right side of the screen or swipe left</li>
+        <li><strong>Previous Song:</strong> Tap the left side of the screen or swipe right</li>
+        <li><strong>Double-tap:</strong> Quick-jump to the song list</li>
+      </ul>
+
+      <h3>What Happens on Song Change</h3>
+      <ol>
+        <li>Program change sent to your Nord</li>
+        <li>Secondary MIDI sent (if configured)</li>
+        <li>Metronome tempo updated</li>
+        <li>Master Click starts (if enabled for the song)</li>
+        <li>Haptic feedback confirms the change</li>
+      </ol>
+
+      <h3>Display Information</h3>
+      <ul>
+        <li>Current song name and number</li>
+        <li>Program name and bank</li>
+        <li>BPM and musical key</li>
+        <li>Performance notes</li>
+        <li>Connection status indicator</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'midi-controls',
+    title: 'MIDI Controls',
+    content: `
+      <h3>Control Tabs</h3>
+      <p>The Controls section has 4 tabs:</p>
+
+      <h4>Quick Tab</h4>
+      <ul>
+        <li>Section toggles (Organ/Piano/Synth on/off)</li>
+        <li>Layer Scene switch (I/II)</li>
+        <li>Morph Pad (Mod Wheel/Expression)</li>
+        <li>Rotary Speed (slow/fast)</li>
+        <li>Effect toggles (Delay/Reverb)</li>
+      </ul>
+
+      <h4>Organ Tab</h4>
+      <ul>
+        <li>9-Fader Drawbars (CC 16-24)</li>
+        <li>Rotary control with visual animation</li>
+        <li>Percussion settings</li>
+        <li>Vibrato/Chorus control</li>
+      </ul>
+
+      <h4>Synth Tab</h4>
+      <ul>
+        <li>Filter XY-pad (Frequency/Resonance)</li>
+        <li>Filter Envelope controls</li>
+        <li>ADSR visual editor</li>
+        <li>Layer Mixer</li>
+      </ul>
+
+      <h4>Effects Tab</h4>
+      <ul>
+        <li>Delay toggle (CC 77)</li>
+        <li>Reverb toggle (CC 89)</li>
+        <li>Morph Pad</li>
+        <li>Rotary control</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'midi-reference',
+    title: 'MIDI CC Reference',
+    content: `
+      <h3>Control Change Messages</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Function</th>
+            <th>CC Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mod Wheel</td><td>CC 1</td></tr>
+          <tr><td>Expression</td><td>CC 11</td></tr>
+          <tr><td>Drawbar 1 (16')</td><td>CC 16</td></tr>
+          <tr><td>Drawbar 2 (5 1/3')</td><td>CC 17</td></tr>
+          <tr><td>Drawbar 3 (8')</td><td>CC 18</td></tr>
+          <tr><td>Drawbar 4 (4')</td><td>CC 19</td></tr>
+          <tr><td>Drawbar 5 (2 2/3')</td><td>CC 20</td></tr>
+          <tr><td>Drawbar 6 (2')</td><td>CC 21</td></tr>
+          <tr><td>Drawbar 7 (1 3/5')</td><td>CC 22</td></tr>
+          <tr><td>Drawbar 8 (1 1/3')</td><td>CC 23</td></tr>
+          <tr><td>Drawbar 9 (1')</td><td>CC 24</td></tr>
+          <tr><td>Rotary Speed</td><td>CC 29</td></tr>
+          <tr><td>Rotary On/Off</td><td>CC 30</td></tr>
+          <tr><td>Filter Frequency</td><td>CC 59</td></tr>
+          <tr><td>Filter Resonance</td><td>CC 60</td></tr>
+          <tr><td>Delay Toggle</td><td>CC 77</td></tr>
+          <tr><td>Reverb Toggle</td><td>CC 89</td></tr>
+          <tr><td>Organ Section</td><td>CC 93</td></tr>
+          <tr><td>Piano Section</td><td>CC 95</td></tr>
+          <tr><td>Synth Section</td><td>CC 97</td></tr>
+          <tr><td>Layer Scene</td><td>CC 103</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Program Changes</h3>
+      <p>Programs are selected using Bank Select (CC0/CC32) followed by Program Change:</p>
+      <ul>
+        <li><strong>Bank A:</strong> CC0=0, CC32=0, PC 0-63</li>
+        <li><strong>Bank B:</strong> CC0=0, CC32=1, PC 0-63</li>
+        <li><strong>Bank C:</strong> CC0=0, CC32=2, PC 0-63</li>
+        <li><strong>Bank D:</strong> CC0=0, CC32=3, PC 0-63</li>
+        <li><strong>Bank E:</strong> CC0=0, CC32=4, PC 0-63</li>
+        <li><strong>Bank F:</strong> CC0=0, CC32=5, PC 0-63</li>
+        <li><strong>Bank G:</strong> CC0=0, CC32=6, PC 0-63</li>
+        <li><strong>Bank H:</strong> CC0=0, CC32=7, PC 0-63</li>
+      </ul>
+    `,
+  },
+];
+---
+
+<Layout title="User Guide" description="Complete guide to using NS4 Companion with your Nord Stage 4 keyboard.">
+  <div class="pt-32 pb-20 md:pt-40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-[280px,1fr] gap-12">
+        <!-- Sidebar Navigation -->
+        <aside class="hidden lg:block">
+          <div class="sticky top-24">
+            <h2 class="font-display font-semibold text-text mb-4">Contents</h2>
+            <nav class="space-y-1">
+              {sections.map(section => (
+                <a
+                  href={`#${section.id}`}
+                  class="block px-4 py-2 rounded-lg text-text-muted hover:text-text hover:bg-surface transition-colors text-sm"
+                >
+                  {section.title}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Content -->
+        <div class="min-w-0">
+          <h1 class="font-display font-bold text-4xl md:text-5xl text-text mb-6">
+            User Guide
+          </h1>
+          <p class="text-text-muted text-lg mb-12">
+            Everything you need to know to get the most out of NS4 Companion.
+          </p>
+
+          <!-- Mobile TOC -->
+          <div class="lg:hidden mb-12 p-4 bg-surface rounded-xl border border-border">
+            <h2 class="font-display font-semibold text-text mb-3">Contents</h2>
+            <nav class="space-y-1">
+              {sections.map(section => (
+                <a
+                  href={`#${section.id}`}
+                  class="block py-2 text-text-muted hover:text-primary transition-colors text-sm"
+                >
+                  {section.title}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          <!-- Sections -->
+          <div class="space-y-16">
+            {sections.map(section => (
+              <section id={section.id} class="scroll-mt-24">
+                <h2 class="font-display font-bold text-2xl md:text-3xl text-text mb-6 pb-4 border-b border-border">
+                  {section.title}
+                </h2>
+                <div class="prose prose-invert max-w-none" set:html={section.content} />
+              </section>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .font-display {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Prose styling for guide content */
+  .prose {
+    color: var(--color-text-muted);
+  }
+
+  .prose h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .prose ul li {
+    list-style-type: disc;
+  }
+
+  .prose ol li {
+    list-style-type: decimal;
+  }
+
+  .prose strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+
+  .prose th, .prose td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .prose th {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+
+  .prose td {
+    font-family: ui-monospace, monospace;
+    font-size: 0.875rem;
+  }
+</style>
