@@ -51,14 +51,34 @@ const features = [
       </div>
 
       <!-- Screenshot Carousel -->
-      <div class="relative">
+      <div class="relative group/carousel">
         <!-- Fade edges -->
         <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none"></div>
         <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none"></div>
 
-        <div class="flex gap-6 md:gap-8 overflow-x-auto pb-8 px-4 scrollbar-hide snap-x snap-mandatory scroll-smooth" id="screenshot-carousel">
+        <!-- Navigation Arrows (Desktop) -->
+        <button
+          id="carousel-prev"
+          class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-surface/90 backdrop-blur border border-border/50 text-text-muted hover:text-primary hover:border-primary/50 hover:bg-surface transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 focus:opacity-100 hidden md:flex items-center justify-center shadow-lg hover:scale-110"
+          aria-label="Previous screenshot"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button
+          id="carousel-next"
+          class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-surface/90 backdrop-blur border border-border/50 text-text-muted hover:text-primary hover:border-primary/50 hover:bg-surface transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 focus:opacity-100 hidden md:flex items-center justify-center shadow-lg hover:scale-110"
+          aria-label="Next screenshot"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <div class="flex gap-6 md:gap-8 overflow-x-auto pb-8 px-4 scrollbar-hide snap-x snap-mandatory scroll-smooth cursor-grab active:cursor-grabbing" id="screenshot-carousel">
           <!-- Setlist with song -->
-          <div class="flex-shrink-0 snap-center">
+          <div class="flex-shrink-0 snap-center carousel-item" data-index="0">
             <div class="relative group">
               <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
               <PhoneMockup src="/screenshots/setlist-song.png" alt="Setlist with songs" size="md" />
@@ -67,7 +87,7 @@ const features = [
           </div>
 
           <!-- Performance Mode -->
-          <div class="flex-shrink-0 snap-center">
+          <div class="flex-shrink-0 snap-center carousel-item" data-index="1">
             <div class="relative group">
               <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
               <PhoneMockup src="/screenshots/performance-mode.png" alt="Performance mode" size="md" />
@@ -76,7 +96,7 @@ const features = [
           </div>
 
           <!-- Programs Browser -->
-          <div class="flex-shrink-0 snap-center">
+          <div class="flex-shrink-0 snap-center carousel-item" data-index="2">
             <div class="relative group">
               <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
               <PhoneMockup src="/screenshots/programs-browser.png" alt="Programs browser" size="md" />
@@ -85,7 +105,7 @@ const features = [
           </div>
 
           <!-- Tempo/Metronome -->
-          <div class="flex-shrink-0 snap-center">
+          <div class="flex-shrink-0 snap-center carousel-item" data-index="3">
             <div class="relative group">
               <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
               <PhoneMockup src="/screenshots/tempo-metronome.png" alt="Tempo and metronome" size="md" />
@@ -94,7 +114,7 @@ const features = [
           </div>
 
           <!-- Controls Quick -->
-          <div class="flex-shrink-0 snap-center">
+          <div class="flex-shrink-0 snap-center carousel-item" data-index="4">
             <div class="relative group">
               <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
               <PhoneMockup src="/screenshots/controls-quick.png" alt="Quick controls" size="md" />
@@ -103,21 +123,64 @@ const features = [
           </div>
 
           <!-- MIDI Monitor -->
-          <div class="flex-shrink-0 snap-center">
+          <div class="flex-shrink-0 snap-center carousel-item" data-index="5">
             <div class="relative group">
               <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
               <PhoneMockup src="/screenshots/midi-monitor.png" alt="MIDI monitor" size="md" />
               <p class="text-center text-text-muted text-sm mt-4 font-medium">MIDI Monitor</p>
             </div>
           </div>
+
+          <!-- Add Song -->
+          <div class="flex-shrink-0 snap-center carousel-item" data-index="6">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
+              <PhoneMockup src="/screenshots/add-song.png" alt="Add song dialog" size="md" />
+              <p class="text-center text-text-muted text-sm mt-4 font-medium">Add Song</p>
+            </div>
+          </div>
+
+          <!-- Programs Favorites -->
+          <div class="flex-shrink-0 snap-center carousel-item" data-index="7">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
+              <PhoneMockup src="/screenshots/programs-favorites.png" alt="Favorite programs" size="md" />
+              <p class="text-center text-text-muted text-sm mt-4 font-medium">Favorites</p>
+            </div>
+          </div>
+
+          <!-- Settings -->
+          <div class="flex-shrink-0 snap-center carousel-item" data-index="8">
+            <div class="relative group">
+              <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"></div>
+              <PhoneMockup src="/screenshots/settings.png" alt="App settings" size="md" />
+              <p class="text-center text-text-muted text-sm mt-4 font-medium">Settings</p>
+            </div>
+          </div>
         </div>
 
-        <!-- Scroll hint -->
-        <div class="flex justify-center gap-2 mt-4">
+        <!-- Dot indicators -->
+        <div class="flex justify-center gap-2 mt-6" id="carousel-dots">
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <button
+              class="carousel-dot w-2 h-2 rounded-full bg-text-dim/30 hover:bg-text-dim/60 transition-all duration-300 hover:scale-125"
+              data-index={i}
+              aria-label={`Go to screenshot ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <!-- Scroll hint (mobile only) -->
+        <div class="flex justify-center gap-2 mt-3 md:hidden">
           <span class="text-text-dim text-sm">Swipe to explore</span>
           <svg class="w-5 h-5 text-text-dim animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
+        </div>
+
+        <!-- Desktop hint -->
+        <div class="hidden md:flex justify-center gap-2 mt-3">
+          <span class="text-text-dim text-sm">Drag or use arrows to explore</span>
         </div>
       </div>
     </div>
@@ -324,4 +387,139 @@ const features = [
   .animate-bounce-x {
     animation: bounceX 1.5s ease-in-out infinite;
   }
+
+  .carousel-dot.active {
+    background-color: #c8102e;
+    transform: scale(1.5);
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('screenshot-carousel');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const items = document.querySelectorAll('.carousel-item');
+
+    if (!carousel || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    // Update active dot
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    // Scroll to specific item
+    function scrollToItem(index) {
+      const item = items[index];
+      if (item) {
+        const containerRect = carousel.getBoundingClientRect();
+        const itemRect = item.getBoundingClientRect();
+        const scrollLeft = carousel.scrollLeft + (itemRect.left - containerRect.left) - (containerRect.width / 2) + (itemRect.width / 2);
+        carousel.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        currentIndex = index;
+        updateDots();
+      }
+    }
+
+    // Arrow navigation
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      scrollToItem(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      scrollToItem(currentIndex);
+    });
+
+    // Dot navigation
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        scrollToItem(i);
+      });
+    });
+
+    // Update dots on scroll
+    let scrollTimeout;
+    carousel.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const containerRect = carousel.getBoundingClientRect();
+        const containerCenter = containerRect.left + containerRect.width / 2;
+
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        items.forEach((item, i) => {
+          const itemRect = item.getBoundingClientRect();
+          const itemCenter = itemRect.left + itemRect.width / 2;
+          const distance = Math.abs(containerCenter - itemCenter);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = i;
+          }
+        });
+
+        currentIndex = closestIndex;
+        updateDots();
+      }, 50);
+    });
+
+    // Drag to scroll (desktop)
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      carousel.classList.add('active');
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      isDown = false;
+      carousel.classList.remove('active');
+    });
+
+    carousel.addEventListener('mouseup', () => {
+      isDown = false;
+      carousel.classList.remove('active');
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 2;
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      // Only when carousel is in view
+      const rect = carousel.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (inView) {
+        if (e.key === 'ArrowLeft') {
+          currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+          scrollToItem(currentIndex);
+        } else if (e.key === 'ArrowRight') {
+          currentIndex = (currentIndex + 1) % totalItems;
+          scrollToItem(currentIndex);
+        }
+      }
+    });
+
+    // Initialize first dot
+    updateDots();
+  });
+</script>
