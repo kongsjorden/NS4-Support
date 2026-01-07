@@ -44,6 +44,15 @@ src/
 ```
 
 ## Content Sources
-Guide content adapted from NS4 Companion app documentation:
-- USER_GUIDE.md
-- FEATURES.md
+
+**IMPORTANT:** Before making documentation changes, always check if the app's docs have been updated:
+
+```
+/Users/kongsjordenstudio/Documents/App_utvikling/Nord_Stage_4/NS4Companion/docs/
+```
+
+Key files to sync with:
+- `USER_GUIDE.md` → `guide.astro`
+- `FEATURES.md` → `features.astro`
+
+Website pages should reflect the latest app documentation. If user mentions doc updates or you're working on guide/features pages, compare with the app's .md files first.
