@@ -9,15 +9,16 @@ const sections = [
       <h3>System Requirements</h3>
       <ul>
         <li>iPhone or iPad running iOS 17.0 or later</li>
-        <li>Nord Stage 4 keyboard</li>
-        <li>USB-C cable or Bluetooth MIDI adapter</li>
+        <li>Nord Stage 4 (all variants)</li>
+        <li>USB-C cable (USB-C to USB-B) or USB hub</li>
       </ul>
 
-      <h3>Installation</h3>
+      <h3>First Launch</h3>
       <ol>
         <li>Download NS4 Companion from the App Store</li>
-        <li>Launch the app and accept the disclaimer</li>
-        <li>Connect your Nord Stage 4 via USB or Bluetooth</li>
+        <li>Open the app and accept the disclaimer</li>
+        <li>Connect your iPhone to Nord Stage 4 via USB</li>
+        <li>The app automatically connects to devices with "Nord" in the name</li>
       </ol>
     `,
   },
@@ -28,26 +29,35 @@ const sections = [
       <h3>USB Connection (Recommended)</h3>
       <p>For the lowest latency (5-10ms), connect via USB:</p>
       <ol>
-        <li>Connect your iPhone/iPad to the Nord Stage 4 using a USB-C cable</li>
-        <li>If using an older device, use a Lightning to USB adapter</li>
-        <li>The app will automatically detect and connect to your Nord</li>
-        <li>Look for the green connection indicator in the app</li>
+        <li>Use a USB-C to USB-B cable (or adapter)</li>
+        <li>Connect directly to Nord Stage 4's USB port</li>
+        <li>Green indicator shows "MIDI" when connected</li>
       </ol>
+      <p>The app automatically reconnects if the cable is disconnected and reconnected (hot-swap). Essential for stage use!</p>
 
-      <h3>Bluetooth Connection</h3>
+      <h3>Bluetooth MIDI</h3>
       <p>For wireless freedom (15-20ms latency):</p>
+      <h4>Supported Adapters</h4>
+      <ul>
+        <li><strong>CME WIDI Master</strong> / WIDI Uhost</li>
+        <li><strong>Yamaha MD-BT01</strong></li>
+        <li>Other BLE MIDI adapters that support iOS</li>
+      </ul>
+      <h4>Pairing a Bluetooth MIDI Device</h4>
       <ol>
-        <li>Connect a BLE MIDI adapter (like CME WIDI Master or Yamaha MD-BT01) to your Nord's MIDI ports</li>
-        <li>In the app, go to Settings → MIDI Connection</li>
-        <li>Select your Bluetooth MIDI device from the list</li>
-        <li>Wait for the connection to establish</li>
+        <li>Go to <strong>Settings</strong> in the app</li>
+        <li>Under <strong>Bluetooth MIDI</strong>, tap <strong>Pair Bluetooth MIDI Device</strong></li>
+        <li>iOS's standard Bluetooth MIDI dialog opens</li>
+        <li>Select your device from the list</li>
+        <li>Once paired, the device will appear in the MIDI Connection list</li>
       </ol>
+      <p>Bluetooth devices show a <strong>BLE</strong> badge (cyan), USB devices show <strong>USB</strong>.</p>
 
       <h3>Troubleshooting</h3>
       <ul>
         <li><strong>No device found:</strong> Make sure your Nord is powered on and the cable is properly connected</li>
         <li><strong>Connection drops:</strong> Try a different USB cable or check your Bluetooth adapter's battery</li>
-        <li><strong>High latency:</strong> Switch from Bluetooth to USB for better performance</li>
+        <li><strong>High latency:</strong> Switch from Bluetooth to USB for time-critical functions like MIDI Clock</li>
       </ul>
     `,
   },
@@ -57,35 +67,47 @@ const sections = [
     content: `
       <h3>Creating a Setlist</h3>
       <ol>
-        <li>Tap the + button on the Setlists screen</li>
-        <li>Enter a name for your setlist</li>
-        <li>Add songs by tapping "Add Song"</li>
+        <li>Go to the <strong>Setlists</strong> tab</li>
+        <li>Tap <strong>+</strong> in the top right</li>
+        <li>Give the setlist a name</li>
+        <li>Tap <strong>Create</strong></li>
       </ol>
 
       <h3>Adding Songs</h3>
       <p>Each song can have:</p>
       <ul>
-        <li><strong>Name:</strong> The song title</li>
-        <li><strong>Program:</strong> Select from 512 Nord programs (Banks A-H)</li>
+        <li><strong>Song Name:</strong> (required)</li>
+        <li><strong>Program:</strong> Select from your Nord programs</li>
         <li><strong>BPM:</strong> Tempo for the metronome</li>
-        <li><strong>Key:</strong> Musical key for reference</li>
-        <li><strong>Notes:</strong> Performance notes visible in Performance Mode</li>
+        <li><strong>Key:</strong> Musical key (optional)</li>
+        <li><strong>Notes:</strong> Notes displayed in Performance Mode</li>
         <li><strong>Master Click:</strong> Toggle auto-start metronome for this song</li>
       </ul>
 
       <h3>Organizing Songs</h3>
       <ul>
-        <li><strong>Reorder:</strong> Long-press and drag songs to rearrange</li>
-        <li><strong>Delete:</strong> Swipe left on a song to delete</li>
-        <li><strong>Edit:</strong> Tap a song to modify its settings</li>
+        <li><strong>Drag and drop</strong> to change order</li>
+        <li><strong>Swipe left</strong> to delete a song</li>
+        <li><strong>Tap</strong> a song to edit</li>
       </ul>
 
-      <h3>Sharing Setlists</h3>
-      <p>Share setlists with bandmates:</p>
-      <ul>
-        <li><strong>QR Code:</strong> Generate a QR code that others can scan</li>
-        <li><strong>JSON Export:</strong> Export as a JSON file for backup or sharing</li>
-      </ul>
+      <h3>Sharing Setlists (QR Code)</h3>
+      <h4>Exporting a Setlist</h4>
+      <ol>
+        <li>Open the setlist</li>
+        <li>Tap the <strong>Share</strong> icon</li>
+        <li>Choose <strong>QR Code</strong> or <strong>JSON File</strong></li>
+        <li>For QR: Show the code to the recipient</li>
+        <li>For JSON: Share the file via AirDrop, email, etc.</li>
+      </ol>
+      <h4>Importing a Setlist</h4>
+      <ol>
+        <li>Go to <strong>Setlists</strong></li>
+        <li>Tap the <strong>QR scanner</strong> icon (top left)</li>
+        <li>Scan the QR code, or tap <strong>Paste from Clipboard</strong></li>
+        <li>Confirm import</li>
+      </ol>
+      <p><strong>Note:</strong> Sharing includes song metadata, program references, and secondary MIDI config — but not the actual program sounds (these must exist on the recipient's Nord).</p>
     `,
   },
   {
@@ -130,36 +152,70 @@ const sections = [
 
       <h4>Quick Tab</h4>
       <ul>
-        <li>Section toggles (Organ/Piano/Synth on/off)</li>
-        <li>Layer Scene switch (I/II)</li>
-        <li>Morph Pad (Mod Wheel/Expression)</li>
-        <li>Rotary Speed (slow/fast)</li>
-        <li>Effect toggles (Delay/Reverb)</li>
+        <li><strong>Section Toggles</strong> — Organ/Piano/Synth on/off (CC 9/33/42)</li>
+        <li><strong>Layer Scene</strong> — Switch between Scene I and II (CC 8)</li>
+        <li><strong>Morph Pad</strong> — XY-pad for Mod Wheel (CC 1) / Expression (CC 11)</li>
+        <li><strong>Rotary Speed</strong> — Leslie slow/fast toggle (CC 108)</li>
+        <li><strong>Effect Toggles</strong> — Delay/Reverb on/off (NRPN)</li>
       </ul>
 
       <h4>Organ Tab</h4>
       <ul>
-        <li>9-Fader Drawbars (CC 16-24)</li>
-        <li>Rotary control with visual animation</li>
-        <li>Percussion settings</li>
-        <li>Vibrato/Chorus control</li>
+        <li><strong>Drawbars</strong> — 9-fader control (CC 16-24)</li>
+        <li><strong>Rotary</strong> — Leslie slow/fast with on/off toggle (CC 108, NRPN 2:80)</li>
+        <li><strong>Percussion</strong> — On/Off, Volume, Decay, Harmonic (CC 25-28)</li>
+        <li><strong>Vibrato/Chorus</strong> — Type selector and on/off (CC 31)</li>
       </ul>
 
       <h4>Synth Tab</h4>
       <ul>
-        <li>Filter XY-pad (Frequency/Resonance)</li>
-        <li>Filter Envelope controls</li>
-        <li>ADSR visual editor</li>
-        <li>Layer Mixer</li>
+        <li><strong>Touch Filter</strong> — XY-pad for Filter Frequency/Resonance (CC 59-60)</li>
+        <li><strong>Filter Envelope</strong> — Frequency/Resonance knobs</li>
+        <li><strong>ADSR Editor</strong> — Visual envelope editor with draggable points</li>
+        <li><strong>Layer Mixer</strong> — Volume control per layer</li>
       </ul>
 
       <h4>Effects Tab</h4>
       <ul>
-        <li>Delay toggle (CC 77)</li>
-        <li>Reverb toggle (CC 89)</li>
-        <li>Morph Pad</li>
-        <li>Rotary control</li>
+        <li><strong>Delay Toggle</strong> — On/Off (NRPN 2:88)</li>
+        <li><strong>Reverb Toggle</strong> — On/Off (NRPN 2:104)</li>
+        <li><strong>Morph Pad</strong> — Expression control</li>
+        <li><strong>Rotary</strong> — Leslie speed control</li>
       </ul>
+
+      <h3>Morph Pad</h3>
+      <p>The XY-pad lets you control two parameters simultaneously:</p>
+      <ul>
+        <li><strong>X-axis:</strong> Mod Wheel (CC 1) or custom CC</li>
+        <li><strong>Y-axis:</strong> Expression (CC 11) or custom CC</li>
+      </ul>
+
+      <h4>Tilt Mode</h4>
+      <p>Control the Morph Pad by tilting your iPhone — hands-free expressive control during performance!</p>
+      <ol>
+        <li>Tap the <strong>TILT</strong> button in the Morph Pad header</li>
+        <li>Hold your phone in your desired neutral position</li>
+        <li>The app auto-calibrates — current orientation becomes center</li>
+      </ol>
+      <p><strong>Using Tilt Mode:</strong></p>
+      <ul>
+        <li>Tilt left/right → X-axis (Mod Wheel by default)</li>
+        <li>Tilt forward/back → Y-axis (Expression by default)</li>
+        <li>±30° tilt gives you full 0-127 MIDI range</li>
+        <li>Screen stays awake while Tilt Mode is active</li>
+        <li>Adjust sensitivity in Settings (0-100%)</li>
+      </ul>
+
+      <h4>Auto-Enable Effects</h4>
+      <p>Automatically turn on effects when using Morph Pad with effect-related CCs.</p>
+      <ol>
+        <li>Tap the gear icon to open Morph Pad settings</li>
+        <li>Scroll to "Effect Control" section</li>
+        <li>Turn on <strong>Auto-Enable Effects</strong></li>
+        <li>Optionally enable <strong>Restore on Release</strong></li>
+      </ol>
+      <p><strong>How it works:</strong> When you use the Morph Pad with an effect CC (e.g., Delay Mix, Reverb Amount), the app automatically sends the NRPN to turn ON that effect. When you release (if Restore on Release is enabled), the effect turns OFF again.</p>
+      <p><strong>Use case:</strong> "Swipe in" reverb during a solo — set Y-axis to Reverb Amount, enable Auto-Enable + Restore on Release. Drag up = reverb turns on and fades in. Release = reverb turns off.</p>
     `,
   },
   {
@@ -171,46 +227,57 @@ const sections = [
         <thead>
           <tr>
             <th>Function</th>
-            <th>CC Number</th>
+            <th>CC/NRPN</th>
           </tr>
         </thead>
         <tbody>
           <tr><td>Mod Wheel</td><td>CC 1</td></tr>
+          <tr><td>Volume</td><td>CC 7</td></tr>
+          <tr><td>Layer Scene</td><td>CC 8</td></tr>
+          <tr><td>Organ On/Off (Scene I)</td><td>CC 9</td></tr>
           <tr><td>Expression</td><td>CC 11</td></tr>
-          <tr><td>Drawbar 1 (16')</td><td>CC 16</td></tr>
-          <tr><td>Drawbar 2 (5 1/3')</td><td>CC 17</td></tr>
-          <tr><td>Drawbar 3 (8')</td><td>CC 18</td></tr>
-          <tr><td>Drawbar 4 (4')</td><td>CC 19</td></tr>
-          <tr><td>Drawbar 5 (2 2/3')</td><td>CC 20</td></tr>
-          <tr><td>Drawbar 6 (2')</td><td>CC 21</td></tr>
-          <tr><td>Drawbar 7 (1 3/5')</td><td>CC 22</td></tr>
-          <tr><td>Drawbar 8 (1 1/3')</td><td>CC 23</td></tr>
-          <tr><td>Drawbar 9 (1')</td><td>CC 24</td></tr>
-          <tr><td>Rotary Speed</td><td>CC 29</td></tr>
-          <tr><td>Rotary On/Off</td><td>CC 30</td></tr>
+          <tr><td>Drawbars 1-9</td><td>CC 16-24</td></tr>
+          <tr><td>Piano On/Off (Scene I)</td><td>CC 33</td></tr>
+          <tr><td>Synth On/Off (Scene I)</td><td>CC 42</td></tr>
           <tr><td>Filter Frequency</td><td>CC 59</td></tr>
           <tr><td>Filter Resonance</td><td>CC 60</td></tr>
-          <tr><td>Delay Toggle</td><td>CC 77</td></tr>
-          <tr><td>Reverb Toggle</td><td>CC 89</td></tr>
-          <tr><td>Organ Section</td><td>CC 93</td></tr>
-          <tr><td>Piano Section</td><td>CC 95</td></tr>
-          <tr><td>Synth Section</td><td>CC 97</td></tr>
-          <tr><td>Layer Scene</td><td>CC 103</td></tr>
+          <tr><td>Sustain</td><td>CC 64</td></tr>
+          <tr><td>Rotary Speed</td><td>CC 108</td></tr>
+          <tr><td>Rotary Drive</td><td>CC 110</td></tr>
+          <tr><td>Reverb Amount</td><td>CC 113</td></tr>
+          <tr><td>Rotary On/Off (Amp/EQ)</td><td>NRPN 2:80</td></tr>
+          <tr><td>Mod 1 On/Off</td><td>NRPN 2:64</td></tr>
+          <tr><td>Mod 2 On/Off</td><td>NRPN 2:72</td></tr>
+          <tr><td>Delay On/Off</td><td>NRPN 2:88</td></tr>
+          <tr><td>Reverb On/Off</td><td>NRPN 2:104</td></tr>
         </tbody>
       </table>
+      <p><strong>Note:</strong> Rotary On/Off controls the Amp/EQ section. Ensure Rotary is selected as the Amp/EQ type on your Nord for this to affect the Leslie effect.</p>
 
       <h3>Program Changes</h3>
-      <p>Programs are selected using Bank Select (CC0/CC32) followed by Program Change:</p>
+      <p>Nord Stage 4 programs use Bank Select (CC0/CC32) followed by Program Change:</p>
       <ul>
-        <li><strong>Bank A:</strong> CC0=0, CC32=0, PC 0-63</li>
-        <li><strong>Bank B:</strong> CC0=0, CC32=1, PC 0-63</li>
-        <li><strong>Bank C:</strong> CC0=0, CC32=2, PC 0-63</li>
-        <li><strong>Bank D:</strong> CC0=0, CC32=3, PC 0-63</li>
-        <li><strong>Bank E:</strong> CC0=0, CC32=4, PC 0-63</li>
-        <li><strong>Bank F:</strong> CC0=0, CC32=5, PC 0-63</li>
-        <li><strong>Bank G:</strong> CC0=0, CC32=6, PC 0-63</li>
-        <li><strong>Bank H:</strong> CC0=0, CC32=7, PC 0-63</li>
+        <li><strong>Banks A, B:</strong> CC0=0, CC32=0</li>
+        <li><strong>Banks C, D:</strong> CC0=0, CC32=1</li>
+        <li><strong>Banks E, F:</strong> CC0=0, CC32=2</li>
+        <li><strong>Banks G, H:</strong> CC0=0, CC32=3</li>
       </ul>
+      <p>Program numbers use Nord format: XX (page 1-8, slot 1-8). Example: A:11 = first program, A:88 = 64th program.</p>
+
+      <h3>Keyboard Shortcuts (iPad)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>→</td><td>Next song</td></tr>
+          <tr><td>←</td><td>Previous song</td></tr>
+          <tr><td>Space</td><td>Start/stop metronome</td></tr>
+        </tbody>
+      </table>
     `,
   },
 ];
