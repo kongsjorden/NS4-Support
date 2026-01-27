@@ -9,7 +9,7 @@ const sections = [
       <h3>System Requirements</h3>
       <ul>
         <li>iPhone or iPad running iOS 17.0 or later</li>
-        <li>Nord Stage 4 (all variants)</li>
+        <li>Compatible stage keyboard with USB MIDI</li>
         <li>USB-C cable (USB-C to USB-B) or USB hub</li>
       </ul>
 
@@ -17,20 +17,20 @@ const sections = [
       <ol>
         <li>Download Stage Companion from the App Store</li>
         <li>Open the app and accept the disclaimer</li>
-        <li>Connect your iPhone to Nord Stage 4 via USB</li>
-        <li>The app automatically connects to devices with "Nord" in the name</li>
+        <li>Connect your iPhone to your keyboard via USB</li>
+        <li>The app automatically detects connected MIDI devices</li>
       </ol>
     `,
   },
   {
     id: 'connecting',
-    title: 'Connecting Your Nord',
+    title: 'Connecting Your Keyboard',
     content: `
       <h3>USB Connection (Recommended)</h3>
       <p>For the lowest latency (5-10ms), connect via USB:</p>
       <ol>
         <li>Use a USB-C to USB-B cable (or adapter)</li>
-        <li>Connect directly to Nord Stage 4's USB port</li>
+        <li>Connect directly to your keyboard's USB port</li>
         <li>Green indicator shows "MIDI" when connected</li>
       </ol>
       <p>The app automatically reconnects if the cable is disconnected and reconnected (hot-swap). Essential for stage use!</p>
@@ -55,7 +55,7 @@ const sections = [
 
       <h3>Troubleshooting</h3>
       <ul>
-        <li><strong>No device found:</strong> Make sure your Nord is powered on and the cable is properly connected</li>
+        <li><strong>No device found:</strong> Make sure your keyboard is powered on and the cable is properly connected</li>
         <li><strong>Connection drops:</strong> Try a different USB cable or check your Bluetooth adapter's battery</li>
         <li><strong>High latency:</strong> Switch from Bluetooth to USB for time-critical functions like MIDI Clock</li>
       </ul>
@@ -77,7 +77,7 @@ const sections = [
       <p>Each song can have:</p>
       <ul>
         <li><strong>Song Name:</strong> (required)</li>
-        <li><strong>Program:</strong> Select from your Nord programs</li>
+        <li><strong>Program:</strong> Select from your keyboard's programs</li>
         <li><strong>BPM:</strong> Tempo for the metronome</li>
         <li><strong>Key:</strong> Musical key (optional)</li>
         <li><strong>Notes:</strong> Notes displayed in Performance Mode</li>
@@ -105,7 +105,7 @@ const sections = [
         <li>Choose to open it with Stage Companion</li>
         <li>Confirm import</li>
       </ol>
-      <p><strong>Note:</strong> Sharing includes song metadata, program references, and secondary MIDI config — but not the actual program sounds (these must exist on the recipient's Nord).</p>
+      <p><strong>Note:</strong> Sharing includes song metadata, program references, and secondary MIDI config — but not the actual program sounds (these must exist on the recipient's keyboard).</p>
     `,
   },
   {
@@ -124,7 +124,7 @@ const sections = [
 
       <h3>What Happens on Song Change</h3>
       <ol>
-        <li>Program change sent to your Nord</li>
+        <li>Program change sent to your keyboard</li>
         <li>Secondary MIDI sent (if configured)</li>
         <li>Metronome tempo updated</li>
         <li>Master Click starts (if enabled for the song)</li>
@@ -250,17 +250,17 @@ const sections = [
           <tr><td>Reverb On/Off</td><td>NRPN 2:104</td></tr>
         </tbody>
       </table>
-      <p><strong>Note:</strong> Rotary On/Off controls the Amp/EQ section. Ensure Rotary is selected as the Amp/EQ type on your Nord for this to affect the Leslie effect.</p>
+      <p><strong>Note:</strong> Rotary On/Off controls the Amp/EQ section. Ensure Rotary is selected as the Amp/EQ type on your keyboard for this to affect the Leslie effect.</p>
 
       <h3>Program Changes</h3>
-      <p>Nord Stage 4 programs use Bank Select (CC0/CC32) followed by Program Change:</p>
+      <p>Stage keyboards typically use Bank Select (CC0/CC32) followed by Program Change:</p>
       <ul>
         <li><strong>Banks A, B:</strong> CC0=0, CC32=0</li>
         <li><strong>Banks C, D:</strong> CC0=0, CC32=1</li>
         <li><strong>Banks E, F:</strong> CC0=0, CC32=2</li>
         <li><strong>Banks G, H:</strong> CC0=0, CC32=3</li>
       </ul>
-      <p>Program numbers use Nord format: XX (page 1-8, slot 1-8). Example: A:11 = first program, A:88 = 64th program.</p>
+      <p>Program numbers use the format: XX (page 1-8, slot 1-8). Example: A:11 = first program, A:88 = 64th program.</p>
 
       <h3>Keyboard Shortcuts (iPad)</h3>
       <table>
@@ -281,7 +281,7 @@ const sections = [
 ];
 ---
 
-<Layout title="User Guide" description="Complete guide to using Stage Companion with your Nord Stage 4 keyboard.">
+<Layout title="User Guide" description="Complete guide to using Stage Companion with your stage keyboard.">
   <div class="pt-32 pb-20 md:pt-40">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid lg:grid-cols-[280px,1fr] gap-12">

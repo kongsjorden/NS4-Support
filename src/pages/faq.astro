@@ -13,8 +13,8 @@ const faqCategories = [
       },
       {
         id: 'not-connecting',
-        question: 'My Nord is not being detected. What should I do?',
-        answer: 'Make sure your Nord Stage 4 is powered on. Check that the USB cable is properly connected. Try a different USB cable if available. Restart both the app and your Nord. If using Bluetooth, ensure your adapter is charged and in pairing mode.',
+        question: 'My keyboard is not being detected. What should I do?',
+        answer: 'Make sure your keyboard is powered on. Check that the USB cable is properly connected. Try a different USB cable if available. Restart both the app and your keyboard. If using Bluetooth, ensure your adapter is charged and in pairing mode.',
       },
       {
         id: 'connection-drops',
@@ -24,7 +24,7 @@ const faqCategories = [
       {
         id: 'bluetooth-adapters',
         question: 'Which Bluetooth MIDI adapters are compatible?',
-        answer: 'The app works with standard BLE MIDI adapters including CME WIDI Master, Yamaha MD-BT01, Quicco mi.1, and similar devices. Connect the adapter to your Nord\'s MIDI IN/OUT ports.',
+        answer: 'The app works with standard BLE MIDI adapters including CME WIDI Master, Yamaha MD-BT01, Quicco mi.1, and similar devices. Connect the adapter to your keyboard\'s MIDI IN/OUT ports.',
       },
     ],
   },
@@ -33,8 +33,8 @@ const faqCategories = [
     faqs: [
       {
         id: 'program-not-changing',
-        question: 'Why isn\'t the program changing on my Nord?',
-        answer: 'First, check that your Nord is connected (green indicator). Ensure Program Change messages are enabled on your Nord (Menu → MIDI → Program Change → On). Verify you\'re on the correct MIDI channel.',
+        question: 'Why isn\'t the program changing on my keyboard?',
+        answer: 'First, check that your keyboard is connected (green indicator). Ensure Program Change messages are enabled on your keyboard (Menu → MIDI → Program Change → On). Verify you\'re on the correct MIDI channel.',
       },
       {
         id: 'share-setlists',
@@ -59,22 +59,22 @@ const faqCategories = [
       {
         id: 'drawbars-not-working',
         question: 'The drawbars aren\'t affecting my organ sound. Why?',
-        answer: 'Make sure the Organ section is active on your Nord. Drawbars only affect the organ section. Check that MIDI CC messages are enabled on your Nord (Menu → MIDI → Control Change → On).',
+        answer: 'Make sure the Organ section is active on your keyboard. Drawbars only affect the organ section. Check that MIDI CC messages are enabled on your keyboard (Menu → MIDI → Control Change → On).',
       },
       {
         id: 'midi-learn',
         question: 'How does MIDI Learn work?',
-        answer: 'Turn the program dial on your Nord Stage 4, and the app will automatically capture the selection. This is useful for quickly finding programs when building setlists.',
+        answer: 'Turn the program dial on your keyboard, and the app will automatically capture the selection. This is useful for quickly finding programs when building setlists.',
       },
       {
         id: 'secondary-devices',
         question: 'Can I control other MIDI devices too?',
-        answer: 'Yes! Use the Rig Manager to configure secondary MIDI devices. You can send program changes to iPad synth apps, external keyboards, drum machines, and more — all simultaneously with your primary Nord program change.',
+        answer: 'Yes! Use the Rig Manager to configure secondary MIDI devices. You can send program changes to iPad synth apps, external keyboards, drum machines, and more — all simultaneously with your primary program change.',
       },
       {
         id: 'midi-clock',
-        question: 'Does the metronome sync with my Nord\'s arpeggiator?',
-        answer: 'Yes! The Master Click sends 24 PPQN MIDI Clock to your Nord, which syncs the built-in arpeggiator and other tempo-synced effects.',
+        question: 'Does the metronome sync with my keyboard\'s arpeggiator?',
+        answer: 'Yes! The Master Click sends 24 PPQN MIDI Clock to your keyboard, which syncs the built-in arpeggiator and other tempo-synced effects.',
       },
     ],
   },
@@ -88,8 +88,8 @@ const faqCategories = [
       },
       {
         id: 'other-keyboards',
-        question: 'Does this work with other Nord keyboards?',
-        answer: 'Stage Companion is specifically designed for the Nord Stage 4. While some features may work with other Nord keyboards, full compatibility is only guaranteed with the Stage 4.',
+        question: 'Which keyboards are compatible?',
+        answer: 'Stage Companion is designed for stage keyboards that support standard MIDI protocol. Best results are achieved with keyboards that support program changes, MIDI CC, and MIDI clock.',
       },
       {
         id: 'offline',
@@ -111,7 +111,7 @@ const faqCategories = [
 ];
 ---
 
-<Layout title="FAQ" description="Frequently asked questions about Stage Companion for Nord Stage 4.">
+<Layout title="FAQ" description="Frequently asked questions about Stage Companion for stage keyboards.">
   <section class="pt-32 pb-20 md:pt-40">
     <div class="max-w-3xl mx-auto px-6">
       <h1 class="font-display font-bold text-4xl md:text-5xl text-text text-center mb-6">
