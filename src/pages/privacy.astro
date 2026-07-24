@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const lastUpdated = 'January 2025';
+const lastUpdated = 'July 2026';
 ---
 
 <Layout title="Privacy Policy" description="Privacy policy for Stage Companion. We collect zero data.">
@@ -21,13 +21,13 @@ const lastUpdated = 'January 2025';
             The Short Version
           </h2>
           <p class="text-text-muted mb-0">
-            <strong class="text-text">We collect zero data.</strong> Stage Companion works completely offline. Your setlists, settings, and usage are stored only on your device. We have no analytics, no tracking, and no accounts. Your data is yours alone.
+            <strong class="text-text">We collect zero data.</strong> Stage Companion has no analytics, no tracking, and no accounts, and we operate no servers. Your setlists and settings are stored on your device — and, only if you enable the optional iCloud sync, in your own private iCloud account. Your data is yours alone.
           </p>
         </div>
 
         <h2>Information We Collect</h2>
         <p>
-          <strong>None.</strong> Stage Companion does not collect, store, or transmit any personal information or usage data. The app operates entirely on your device without any connection to external servers.
+          <strong>None.</strong> Stage Companion does not collect, store, or transmit any personal information or usage data to us or to any third party we work with. We operate no servers, and the app never contacts us.
         </p>
 
         <h2>Data Storage</h2>
@@ -35,15 +35,20 @@ const lastUpdated = 'January 2025';
           All data created within the app — including setlists, program configurations, and preferences — is stored locally on your device using Apple's secure storage mechanisms. This data is:
         </p>
         <ul>
-          <li>Stored only on your device</li>
+          <li>Stored on your device</li>
           <li>Included in your iCloud backups if enabled</li>
           <li>Deleted when you uninstall the app</li>
-          <li>Never transmitted to us or any third party</li>
+          <li>Never transmitted to us</li>
         </ul>
+
+        <h2>Optional iCloud Sync</h2>
+        <p>
+          Stage Companion offers an optional iCloud sync (off by default) that keeps your setlists, songs, and presets in sync between your own devices. When enabled, your data is stored in your personal, private iCloud database (Apple CloudKit), tied to your Apple Account and covered by <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. We cannot see, access, or process this data — it never touches any server of ours. Turning sync off stops all iCloud transfer, and you can remove the stored data from iCloud in the iOS Settings app.
+        </p>
 
         <h2>Network Access</h2>
         <p>
-          Stage Companion does not require or use an internet connection. The only network-related functionality is MIDI communication with your keyboard via USB or Bluetooth, which is a direct local connection.
+          Stage Companion works without an internet connection. The app never contacts servers operated by us. The only network use is the optional iCloud sync described above (directly between your device and Apple's iCloud), plus MIDI communication with your keyboard via USB or Bluetooth, which is a direct local connection.
         </p>
 
         <h2>Third-Party Services</h2>
@@ -70,11 +75,6 @@ const lastUpdated = 'January 2025';
           No data from these connections is stored, logged, or transmitted.
         </p>
 
-        <h2>Sharing Features</h2>
-        <p>
-          When you use the setlist sharing feature (JSON export), the data is shared directly between devices. We do not see, store, or process any shared data.
-        </p>
-
         <h2>Children's Privacy</h2>
         <p>
           Since we collect no data, Stage Companion is compliant with children's privacy regulations including COPPA. The app does not knowingly collect any information from anyone, including children under 13.
@@ -95,7 +95,7 @@ const lastUpdated = 'January 2025';
 
         <h2>Your Rights</h2>
         <p>
-          Since we don't collect any data, there's nothing to access, correct, or delete. Your data exists only on your device and is fully under your control.
+          Since we don't collect any data, there's nothing for us to access, correct, or delete. Your data exists on your device (and in your own iCloud account if you enable sync) and is fully under your control.
         </p>
       </div>
     </div>
